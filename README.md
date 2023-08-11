@@ -15,14 +15,6 @@ The Client class contains socket information and the specific functions for send
 ### class: GUI
 
 I used tkinter to create the GUI. 
-In order to use the GUI efficiently, you need to create a username. After this you get a user-id, your username is login and a filemenu which contains the function to send private message to another user if you know his user-id or username and the function to reload the gui in order to see new created groupchats).
-On the right side, You can create a network (group chat) with any number of allowed users by clicking on the GUI and entering an integer.
-The buttons to enter the network should spawn under the label "Join Network" after refreshing the GUI by clicking the function "Update Network" in the filemenu.
-I also added a search Function to check if a certain network exist by giving his id.
-
-If you enter a network, you can write with other people in the groupchat. (I adjust the load of messages in the group chat to 3 seconds which results in delayed messages, but to change this, one can change the code in line 777 in Gruppenchat.py from _time.sleep(5)_ to _time.sleep(0.25)_.)
-
-I used tkinter to create the GUI. 
 To use the GUI efficiently you have to create a username. After that you get a user id, the username and a file menu which contains the function to send a private message to another user if you know his _user id_ or _username_ and the function to reload the _GUI_ to see newly created group chats).
 On the right side, you can create a network (group chat) with any number of allowed users by clicking on the _button : "Create Network"_ and entering an integer.
 The buttons to join the network should appear under the label "Join Network" after you update the GUI by clicking  _"Update Network"_ function on the file menu.

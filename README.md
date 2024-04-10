@@ -1,28 +1,13 @@
-# Group-Chat
-First Python Project: Programming Group-Chat with TCP/IP Sockets
+##Group-Chat: My First Python Project with TCP/IP Sockets
+##Client.py
+Network Class:
+The Network class handles the client socket. It represents group rooms and includes properties for the number of clients it can accommodate and the number of subnets (subgroup rooms), although subnet functionality isn't implemented. Other classes like Message and Groupchat help save messages and display them on the GUI.
 
-## Client.py
+##Client and User Classes:
+The Client class manages socket information and functions for sending private messages, sharing network information, and managing group chat messages. Each client maintains a group chat log, allowing them to review messages sent to them. Additionally, the User class stores client information such as ID, username, and current group chat. Originally, I created the User class without knowing about sockets, intending to manage users within a "network." While this approach may not be optimal, I kept it due to the significant code investment.
 
-### class network:
-This is the client socket. The network class represents the group rooms and has properties for how many clients can use them and how many subnets, i.e. subgroup rooms, it has (I didn't take the subnets into account in the socket programming because this is unnecessary for my learning experience and just more work might). There are other classes, such as Message, Groupchat. These are important to save the messages and display them on the GUI. (Their also might be some useless code...)
+##GUI Class:
+I utilized tkinter to create the GUI. Upon launching, users are prompted to create a username. Once set, they receive a user ID and can access a file menu offering options to send private messages to other users and refresh the GUI to view new group chats. On the right side of the GUI, users can create group chats with any number of participants by clicking the "Create Network" button and entering the desired number. After updating the GUI with the "Update Network" function, buttons to join these networks appear under the "Join Network" label. Additionally, I implemented a search function allowing users to check if a specific network exists by entering its ID. Within group chats, messages load every 5 seconds, although this delay can be adjusted by modifying the code in groupchat.py.
 
-# class Client and User:
-
-The Client class contains socket information and the specific functions for sending private messages, sending information about the connected network and about the messages in the groupchat. Each client has a groupchat_log. When a client sends a message to another client, it can read that message by looking in the file menu and clicking _"Receive Message"_ (looking up the groupchat_log). I created the User class to store the information about ID, username, and which groupchat the client is currently in.
-(I guess I could have put this information in the Client class and deleted the User class, but this project was my first Python project and when I started it, I had no idea about sockets, so I programmed a "network" just for fun, but later I found out that I could use sockets to achieve my goal. But after writing a lot of code for the User class, I didn't want to delete everything).
-
-
-### class: GUI
-
-I used tkinter to create the GUI. 
-To use the GUI efficiently you have to create a username. After that you get a user id, the username and a file menu which contains the function to send a private message to another user if you know his _user id_ or _username_ and the function to reload the _GUI_ to see newly created group chats).
-On the right side, you can create a network (group chat) with any number of allowed users by clicking on the _button : "Create Network"_ and entering an integer.
-The buttons to join the network should appear under the label "Join Network" after you update the GUI by clicking  _"Update Network"_ function on the file menu.
-I also added a search function to check if a particular network exists by entering its ID.
-
-When you join a network, you can write with other people in your groupchat. (I have set message loading in group chat to 5 seconds, which results in delayed messages, but to change this you can change the code in line 777 in groupchat.py from _time.sleep(5)_ to _time.sleep(0.25)_).
-
-## Server.py
-
-This is the server socket. Depending on the command, it receives and sends messages to users (privately or in group chat(network)). I've used a randomly generated sequence of numbers for certain commands like Broadcast or Private Message to distinguish specific uses. (Maybe there are some methods that are actually useless, but I'm afraid to delete those because they might break my whole code
-
+##Server.py
+The Server module manages the server socket. Depending on received commands, it dispatches messages to users privately or within group chats (networks). Commands like Broadcast or Private Message are distinguished using randomly generated sequence numbers. While some methods may seem redundant, I hesitate to remove them fearing potential disruptions to the code's functionality.
